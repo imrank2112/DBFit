@@ -1,0 +1,8 @@
+
+!3 !-fit:fit.FitServer-!
+|'''Date: '''| 5:53:53 PM (GMT) on Wednesday, March 19, 2014 |
+|'''Test Page: '''|.DbFit.AnonymousBlock|
+|'''Command: '''| !-java -cp lib\fitnesse-standalone-20140122.jar;D:\DBFIT\lib\commons-codec-1.7.jar;D:\DBFIT\lib\commons-io-2.4.jar;D:\DBFIT\lib\commons-lang3-3.1.jar;D:\DBFIT\lib\dbfit-core-2.2.0.jar;D:\DBFIT\lib\dbfit-db2-2.2.0.jar;D:\DBFIT\lib\dbfit-derby-2.2.0.jar;D:\DBFIT\lib\dbfit-docs.jar;D:\DBFIT\lib\dbfit-hsqldb-2.2.0.jar;D:\DBFIT\lib\dbfit-mysql-2.2.0.jar;D:\DBFIT\lib\dbfit-oracle-2.2.0.jar;D:\DBFIT\lib\dbfit-postgres-2.2.0.jar;D:\DBFIT\lib\dbfit-sqlserver-2.2.0.jar;D:\DBFIT\lib\dom4j-1.6.1.jar;D:\DBFIT\lib\fitlibrary-20081102.jar;D:\DBFIT\lib\fitnesse-standalone-20140122.jar;D:\DBFIT\lib\guava-11.0.2.jar;D:\DBFIT\lib\javassist-3.16.1-GA.jar;D:\DBFIT\lib\jdbc-oracle.jar;D:\DBFIT\lib\jsr305-1.3.9.jar;D:\DBFIT\lib\jtds-1.2.2.jar;D:\DBFIT\lib\mysql-connector-java-5.1.6.jar;D:\DBFIT\lib\postgresql-9.1-901.jdbc4.jar;D:\DBFIT\lib\reflections-0.9.9-RC1.jar;D:\DBFIT\lib\xml-apis-1.0.b2.jar fit.FitServer GRB-RDG1H16 55908 3863-! |
+|'''Exit code: '''| 0 |
+|'''Time elapsed: '''| 1.48 seconds |
+

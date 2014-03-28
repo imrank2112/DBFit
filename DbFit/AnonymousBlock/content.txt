@@ -1,0 +1,68 @@
+!path lib/*.jar
+
+!|import fixture|
+|dbfit.fixture |
+
+!|DatabaseEnvironment|oracle|                                     
+|connect|127.0.0.1:7771|CID_OWNER|cid_owner|CDPDVS01|
+
+!|Execute Procedure|Test|
+Create or Replace Test
+CURSOR c (p_tgt_sch VARCHAR2) is 
+SELECT table_name 
+FROM dba_tables 
+WHERE table_name IN 
+(
+'ADDRESS_TYPES'                 
+)
+and owner = p_tgt_sch;
+
+v_err_msg varchar2(3000);
+v_stmt varchar2(3000);
+v_stmt1 varchar2(3000);
+v_cnt number := 1;
+v_row_cnt number:=0;
+v_src_sch varchar2(300) := 'BRP_OWNER';
+v_tgt_sch varchar2(300) := 'BRP_OWNER_PROD';
+
+BEGIN
+
+FOR rec IN c (v_tgt_sch)
+
+LOOP
+    BEGIN
+    v_stmt1 := 'select count(1) from '|| v_tgt_sch||'.'||rec.table_name||' where rownum = 1 ';
+    DBMS_OUTPUT.PUT_LINE('stmt1:'||v_stmt1);
+    -- EXECUTE IMMEDIATE 'select count(1) into v_cnt from '||rec.table_name||' where rownum = 1 ';-- returning into v_cnt;
+    EXECUTE IMMEDIATE v_stmt1 into v_cnt;
+     if v_cnt=0 then
+    v_stmt := 'insert /*+ APPEND */ into '|| v_tgt_sch||'.'||rec.table_name ||'(select * from '|| v_src_sch||'.'||rec.table_name ||')';
+    --DBMS_OUTPUT.PUT_LINE('inside if');
+    EXECUTE IMMEDIATE v_stmt;
+    v_row_cnt:=sql%rowcount;
+      dbms_output.Put_line(' Number of record inserted : '||v_row_cnt);
+    
+   --DBMS_OUTPUT.PUT_LINE('inside if 2');
+    COMMIT;
+    
+    ELSE
+     dbms_output.put_line(' Data already present in Table name  '||rec.table_name);
+    END IF;
+      
+    EXCEPTION
+    WHEN OTHERS THEN
+        v_err_msg := SUBSTR(SQLERRM,1,200);
+        DBMS_OUTPUT.PUT_LINE(' Following error occurred for table '||rec.table_name||' : '||v_err_msg);
+    
+    END;
+  
+END LOOP;
+END;
+|
+!|Execute|commit|
+
+!|Query|Select * from BRP_OWNER_PROD.ADDRESS_TYPES|
+|adt_address_type|adt_address_type_desc|
+|DEL_MIG|Delivery (Migrant)|
+|DEL_REP|Delivery (Representative)|
+|DEL_RETURN|Delivery (Returned Cards)|

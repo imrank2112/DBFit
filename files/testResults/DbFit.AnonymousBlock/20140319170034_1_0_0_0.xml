@@ -1,0 +1,72 @@
+<?xml version="1.0"?>
+<testResults>
+  <FitNesseVersion>v20140122</FitNesseVersion>
+  <rootPath>DbFit.AnonymousBlock</rootPath>
+    <result>
+    <counts>
+      <right>6</right>
+      <wrong>0</wrong>
+      <ignores>0</ignores>
+      <exceptions>0</exceptions>
+    </counts>
+    <runTimeInMillis>918</runTimeInMillis>
+    <content>&lt;br/&gt;&lt;span class="meta"&gt;classpath: lib/*.jar&lt;/span&gt;&lt;br/&gt;&lt;br/&gt;&lt;table&gt;
+	&lt;tr&gt;
+		&lt;td&gt;import fixture&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;dbfit.fixture&lt;/td&gt;
+	&lt;/tr&gt;
+&lt;/table&gt;
+&lt;br/&gt;&lt;table&gt;
+	&lt;tr&gt;
+		&lt;td&gt;DatabaseEnvironment&lt;/td&gt;
+		&lt;td colspan="4"&gt;oracle&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;connect&lt;/td&gt;
+		&lt;td&gt;127.0.0.1:7771&lt;/td&gt;
+		&lt;td&gt;CID_OWNER&lt;/td&gt;
+		&lt;td&gt;cid_owner&lt;/td&gt;
+		&lt;td&gt;CDPDVS01&lt;/td&gt;
+	&lt;/tr&gt;
+&lt;/table&gt;
+&lt;br/&gt;!|Execute|!-&lt;br/&gt;begin &lt;br/&gt;&lt;table&gt;
+	&lt;tr&gt;
+		&lt;td&gt;Query&lt;/td&gt;
+		&lt;td&gt;Select * from BRP_OWNER.ADDRESS_TYPES&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;adt_address_type&lt;/td&gt;
+		&lt;td&gt;adt_address_type_desc&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td class="pass"&gt;DEL_MIG&lt;/td&gt;
+		&lt;td class="pass"&gt;Delivery (Migrant)&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td class="pass"&gt;DEL_REP&lt;/td&gt;
+		&lt;td class="pass"&gt;Delivery (Representative)&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td class="pass"&gt;DEL_RETURN&lt;/td&gt;
+		&lt;td class="pass"&gt;Delivery (Returned Cards)&lt;/td&gt;
+	&lt;/tr&gt;
+&lt;/table&gt;
+&lt;br/&gt;end; &lt;br/&gt;&lt;br/&gt;|&lt;br/&gt;</content>
+    <relativePageName>AnonymousBlock</relativePageName>
+    
+    
+    
+  </result>
+  
+    <finalCounts>
+    <right>1</right>
+    <wrong>0</wrong>
+    <ignores>0</ignores>
+    <exceptions>0</exceptions>
+  </finalCounts>
+  <totalRunTimeInMillis>1314</totalRunTimeInMillis>
+  
+</testResults>
+

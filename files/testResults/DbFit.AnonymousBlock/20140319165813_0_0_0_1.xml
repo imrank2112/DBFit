@@ -1,0 +1,109 @@
+<?xml version="1.0"?>
+<testResults>
+  <FitNesseVersion>v20140122</FitNesseVersion>
+  <rootPath>DbFit.AnonymousBlock</rootPath>
+    <result>
+    <counts>
+      <right>0</right>
+      <wrong>0</wrong>
+      <ignores>0</ignores>
+      <exceptions>1</exceptions>
+    </counts>
+    <runTimeInMillis>964</runTimeInMillis>
+    <content>&lt;br/&gt;&lt;span class="meta"&gt;classpath: lib/*.jar&lt;/span&gt;&lt;br/&gt;&lt;br/&gt;&lt;table&gt;
+	&lt;tr&gt;
+		&lt;td&gt;import fixture&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;dbfit.fixture&lt;/td&gt;
+	&lt;/tr&gt;
+&lt;/table&gt;
+&lt;br/&gt;&lt;table&gt;
+	&lt;tr&gt;
+		&lt;td&gt;DatabaseEnvironment&lt;/td&gt;
+		&lt;td colspan="4"&gt;oracle&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;connect&lt;/td&gt;
+		&lt;td&gt;127.0.0.1:7771&lt;/td&gt;
+		&lt;td&gt;CID_OWNER&lt;/td&gt;
+		&lt;td&gt;cid_owner&lt;/td&gt;
+		&lt;td&gt;CDPDVS01&lt;/td&gt;
+	&lt;/tr&gt;
+&lt;/table&gt;
+&lt;br/&gt;&lt;table&gt;
+	&lt;tr&gt;
+		&lt;td class="error"&gt;Execute&lt;hr&gt;&lt;pre&gt;&lt;div class="fit_stacktrace"&gt;java.lang.Error: java.sql.SQLException: ORA-06550: line 1, column 17:
+PLS-00103: Encountered the symbol "!" when expecting one of the following:
+
+   ( begin case declare exit for goto if loop mod null pragma
+   raise return select update while with &lt;an identifier&gt;
+   &lt;a double-quoted delimited-identifier&gt; &lt;a bind variable&gt; &lt;&lt;
+   continue close current delete fetch lock insert open rollback
+   savepoint set sql execute commit forall merge pipe purge
+
+	at dbfit.fixture.Execute.doRows(Execute.java:29)
+	at fit.Fixture.doTable(Fixture.java:154)
+	at fit.Fixture.interpretFollowingTables(Fixture.java:120)
+	at fit.Fixture.interpretTables(Fixture.java:106)
+	at fit.Fixture.doTables(Fixture.java:80)
+	at fit.FitServer.process(FitServer.java:81)
+	at fit.FitServer.run(FitServer.java:56)
+	at fit.FitServer.main(FitServer.java:41)
+Caused by: java.sql.SQLException: ORA-06550: line 1, column 17:
+PLS-00103: Encountered the symbol "!" when expecting one of the following:
+
+   ( begin case declare exit for goto if loop mod null pragma
+   raise return select update while with &lt;an identifier&gt;
+   &lt;a double-quoted delimited-identifier&gt; &lt;a bind variable&gt; &lt;&lt;
+   continue close current delete fetch lock insert open rollback
+   savepoint set sql execute commit forall merge pipe purge
+
+	at oracle.jdbc.driver.DatabaseError.throwSqlException(DatabaseError.java:113)
+	at oracle.jdbc.driver.T4CTTIoer.processError(T4CTTIoer.java:331)
+	at oracle.jdbc.driver.T4CTTIoer.processError(T4CTTIoer.java:288)
+	at oracle.jdbc.driver.T4C8Oall.receive(T4C8Oall.java:754)
+	at oracle.jdbc.driver.T4CPreparedStatement.doOall8(T4CPreparedStatement.java:219)
+	at oracle.jdbc.driver.T4CPreparedStatement.executeForRows(T4CPreparedStatement.java:972)
+	at oracle.jdbc.driver.OracleStatement.doExecuteWithTimeout(OracleStatement.java:1192)
+	at oracle.jdbc.driver.OraclePreparedStatement.executeInternal(OraclePreparedStatement.java:3415)
+	at oracle.jdbc.driver.OraclePreparedStatement.execute(OraclePreparedStatement.java:3521)
+	at dbfit.fixture.StatementExecution.run(StatementExecution.java:75)
+	at dbfit.fixture.Execute.doRows(Execute.java:27)
+	... 7 more
+&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;
+		&lt;td&gt;
+
+declare
+
+begin 
+!|Query|Select * from BRP_OWNER.ADDRESS_TYPES|
+|adt_address_type|adt_address_type_desc|
+|DEL_MIG|Delivery (Migrant)|
+|DEL_REP|Delivery (Representative)|
+|DEL_RETURN|Delivery (Returned Cards)|
+
+  commit; 
+
+end; 
+
+&lt;/td&gt;
+	&lt;/tr&gt;
+&lt;/table&gt;
+</content>
+    <relativePageName>AnonymousBlock</relativePageName>
+    
+    
+    
+  </result>
+  
+    <finalCounts>
+    <right>0</right>
+    <wrong>0</wrong>
+    <ignores>0</ignores>
+    <exceptions>1</exceptions>
+  </finalCounts>
+  <totalRunTimeInMillis>1379</totalRunTimeInMillis>
+  
+</testResults>
+

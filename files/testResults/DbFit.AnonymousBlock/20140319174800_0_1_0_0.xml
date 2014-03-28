@@ -1,0 +1,78 @@
+<?xml version="1.0"?>
+<testResults>
+  <FitNesseVersion>v20140122</FitNesseVersion>
+  <rootPath>DbFit.AnonymousBlock</rootPath>
+    <result>
+    <counts>
+      <right>0</right>
+      <wrong>3</wrong>
+      <ignores>0</ignores>
+      <exceptions>0</exceptions>
+    </counts>
+    <runTimeInMillis>1014</runTimeInMillis>
+    <content>&lt;br/&gt;&lt;span class="meta"&gt;classpath: lib/*.jar&lt;/span&gt;&lt;br/&gt;&lt;br/&gt;&lt;table&gt;
+	&lt;tr&gt;
+		&lt;td&gt;import fixture&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;dbfit.fixture&lt;/td&gt;
+	&lt;/tr&gt;
+&lt;/table&gt;
+&lt;br/&gt;&lt;table&gt;
+	&lt;tr&gt;
+		&lt;td&gt;DatabaseEnvironment&lt;/td&gt;
+		&lt;td colspan="4"&gt;oracle&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;connect&lt;/td&gt;
+		&lt;td&gt;127.0.0.1:7771&lt;/td&gt;
+		&lt;td&gt;CID_OWNER&lt;/td&gt;
+		&lt;td&gt;cid_owner&lt;/td&gt;
+		&lt;td&gt;CDPDVS01&lt;/td&gt;
+	&lt;/tr&gt;
+&lt;/table&gt;
+&lt;br/&gt;!|Execute|!-&lt;br/&gt;DECLARE&lt;br/&gt;CURSOR c (p_tgt_sch VARCHAR2) is &lt;br/&gt;SELECT table_name &lt;br/&gt;FROM dba_tables &lt;br/&gt;WHERE table_name IN &lt;br/&gt;(&lt;br/&gt;'ADDRESS_TYPES'                 &lt;br/&gt;)&lt;br/&gt;and owner = p_tgt_sch;&lt;br/&gt;&lt;br/&gt;v_err_msg varchar2(3000);&lt;br/&gt;v_stmt varchar2(3000);&lt;br/&gt;v_stmt1 varchar2(3000);&lt;br/&gt;v_cnt number := 1;&lt;br/&gt;v_row_cnt number:=0;&lt;br/&gt;v_src_sch varchar2(300) := 'BRP_OWNER';&lt;br/&gt;v_tgt_sch varchar2(300) := 'BRP_OWNER_PROD';&lt;br/&gt;&lt;br/&gt;BEGIN&lt;br/&gt;&lt;br/&gt;FOR rec IN c (v_tgt_sch)&lt;br/&gt;&lt;br/&gt;LOOP&lt;br/&gt;    BEGIN&lt;br/&gt;    v_stmt1 := 'select count(1) from '|| v_tgt_sch||'.'||rec.table_name||' where rownum = 1 ';&lt;br/&gt;    DBMS_OUTPUT.PUT_LINE('stmt1:'||v_stmt1);&lt;br/&gt;    &lt;strike&gt; EXECUTE IMMEDIATE 'select count(1) into v_cnt from '||rec.table_name||' where rownum = 1 ';&lt;/strike&gt; returning into v_cnt;&lt;br/&gt;    EXECUTE IMMEDIATE v_stmt1 into v_cnt;&lt;br/&gt;     if v_cnt=0 then&lt;br/&gt;    v_stmt := 'insert /*+ APPEND */ into '|| v_tgt_sch||'.'||rec.table_name ||'(select * from '|| v_src_sch||'.'||rec.table_name ||')';&lt;br/&gt;    &lt;strike&gt;DBMS_OUTPUT.PUT_LINE('inside if');&lt;br/&gt;    EXECUTE IMMEDIATE v_stmt;&lt;br/&gt;    v_row_cnt:=sql%rowcount;&lt;br/&gt;      dbms_output.Put_line(' Number of record inserted : '||v_row_cnt);&lt;br/&gt;    &lt;br/&gt;   &lt;/strike&gt;DBMS_OUTPUT.PUT_LINE('inside if 2');&lt;br/&gt;    COMMIT;&lt;br/&gt;    &lt;br/&gt;    ELSE&lt;br/&gt;     dbms_output.put_line(' Data already present in Table name  '||rec.table_name);&lt;br/&gt;    END IF;&lt;br/&gt;      &lt;br/&gt;    EXCEPTION&lt;br/&gt;    WHEN OTHERS THEN&lt;br/&gt;        v_err_msg := SUBSTR(SQLERRM,1,200);&lt;br/&gt;        DBMS_OUTPUT.PUT_LINE(' Following error occurred for table '||rec.table_name||' : '||v_err_msg);&lt;br/&gt;    &lt;br/&gt;    END;&lt;br/&gt;  &lt;br/&gt;END LOOP;&lt;br/&gt;END;&lt;br/&gt;|&lt;br/&gt;&lt;table&gt;
+	&lt;tr&gt;
+		&lt;td&gt;Execute&lt;/td&gt;
+		&lt;td&gt;commit&lt;/td&gt;
+	&lt;/tr&gt;
+&lt;/table&gt;
+&lt;br/&gt;&lt;table&gt;
+	&lt;tr&gt;
+		&lt;td&gt;Query&lt;/td&gt;
+		&lt;td&gt;Select * from BRP_OWNER_PROD.ADDRESS_TYPES&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;adt_address_type&lt;/td&gt;
+		&lt;td&gt;adt_address_type_desc&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr class="fail"&gt;
+		&lt;td&gt;DEL_MIG &lt;span class="fit_grey"&gt; missing&lt;/span&gt;&lt;/td&gt;
+		&lt;td&gt;Delivery (Migrant)&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr class="fail"&gt;
+		&lt;td&gt;DEL_REP &lt;span class="fit_grey"&gt; missing&lt;/span&gt;&lt;/td&gt;
+		&lt;td&gt;Delivery (Representative)&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr class="fail"&gt;
+		&lt;td&gt;DEL_RETURN &lt;span class="fit_grey"&gt; missing&lt;/span&gt;&lt;/td&gt;
+		&lt;td&gt;Delivery (Returned Cards)&lt;/td&gt;
+	&lt;/tr&gt;
+&lt;/table&gt;
+</content>
+    <relativePageName>AnonymousBlock</relativePageName>
+    
+    
+    
+  </result>
+  
+    <finalCounts>
+    <right>0</right>
+    <wrong>1</wrong>
+    <ignores>0</ignores>
+    <exceptions>0</exceptions>
+  </finalCounts>
+  <totalRunTimeInMillis>1435</totalRunTimeInMillis>
+  
+</testResults>
+
